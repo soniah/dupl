@@ -6,7 +6,6 @@ type Match struct {
 	Ps  []Pos
 	Len Pos
 }
-
 type posList struct {
 	positions []Pos
 }

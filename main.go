@@ -27,6 +27,7 @@ var (
 
 	html     = flag.Bool("html", false, "")
 	plumbing = flag.Bool("plumbing", false, "")
+	ide      = flag.Bool("ide", false, "")
 )
 
 const (
@@ -79,6 +80,8 @@ func main() {
 		newPrinter = printer.NewHTML
 	} else if *plumbing {
 		newPrinter = printer.NewPlumbing
+	} else if *ide {
+		newPrinter = printer.NewIde
 	}
 	p := newPrinter(os.Stdout, ioutil.ReadFile)
 	if err := printDupls(p, duplChan); err != nil {
